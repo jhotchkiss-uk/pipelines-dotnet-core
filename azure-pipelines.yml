@@ -28,7 +28,16 @@ steps:
   inputs:
     azureSubscription: 'Azure Connection to Personal Sub'
     WebAppName: 'jh-test-wa'
+    DeployToSlotFlag: true
+    ResourceGroupName: 'webapp-tst-jhotchkiss_uk'
+    SlotName: staging
     Package: $(System.ArtifactsDirectory)/**/*.zip
+- task: AzureAppServiceManage@0
+  inputs:
+    azureSubscription: 'Azure Connection to Personal Sub'
+    WebAppName: 'jh-test-wa'
+    ResourceGroupName: 'webapp-tst-jhotchkiss_uk'
+    SourceSlot: staging
 
 
   
