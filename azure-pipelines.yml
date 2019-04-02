@@ -27,7 +27,7 @@ steps:
 - task: AzureRmWebAppDeployment@3
   inputs:
     azureSubscription: 'Azure Connection to Personal Sub'
-    WebAppName: '<jh-test-wa>'
+    WebAppName: 'jh-test-wa'
     Package: $(System.ArtifactsDirectory)/**/*.zip
 
 
