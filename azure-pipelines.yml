@@ -14,4 +14,11 @@ variables:
 
 steps:
 - script: dotnet build --configuration $(buildConfiguration)
+- task: DotNetCoreCLI@2
+  displayName: 'Install dotnetsay'
+  inputs:
+    command: custom
+    projects: '**/*.csproj'
+    custom: tool
+    arguments: 'install -g dotnetsay'
   displayName: 'dotnet build $(buildConfiguration)'
