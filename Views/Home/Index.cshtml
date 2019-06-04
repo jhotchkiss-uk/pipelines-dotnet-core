@@ -1,43 +1,8 @@
-﻿# ASP.NET Core
-# Build and test ASP.NET Core projects targeting .NET Core.
-# Add steps that run tests, create a NuGet package, deploy, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
 
-trigger:
-- master
-
-pool:
-  vmImage: 'vs2017-win2016' # examples of other options: 'macOS-10.13', 'vs2017-win2016' 'Ubuntu-16.04'
-
-variables:
-  buildConfiguration: 'Release'
-
-steps:
-- script: dotnet build --configuration $(buildConfiguration)
-  displayName: 'dotnet build $(buildConfiguration)'
-# ...
-# do this after you've built your app, near the end of your pipeline in most cases
-# for example, you do this before you deploy to an Azure web app on Windows
-- task: DotNetCoreCLI@2
-  inputs:
-    command: publish
-    publishWebProjects: True
-    arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
-    zipAfterPublish: True
-- task: AzureRmWebAppDeployment@3
-  inputs:
-    azureSubscription: 'Azure Connection to Personal Sub'
-    WebAppName: 'jh-test-wa-staging'
-    DeployToSlotFlag: True
-    ResourceGroupName: 'webapp-tst-jhotchkiss_uk'
-    SlotName: staging
-    Package: $(System.ArtifactsDirectory)/**/*.zip
-- task: AzureAppServiceManage@0
-  inputs:
-    azureSubscription: 'Azure Connection to Personal Sub'
-    WebAppName: 'jh-test-wa-staging'
-    ResourceGroupName: 'webapp-tst-jhotchkiss_uk'
-    SourceSlot: staging
-
-
-  
+<div class="text-center">
+    <h1 class="display-4">Hi and welcome to my Shawbrook page I'm testing</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
