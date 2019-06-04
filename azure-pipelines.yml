@@ -27,7 +27,7 @@ steps:
 - task: AzureRmWebAppDeployment@3
   inputs:
     azureSubscription: 'Azure Connection to Personal Sub'
-    WebAppName: 'jh-test-wa'
+    WebAppName: 'jh-test-wa-staging'
     DeployToSlotFlag: false
     ResourceGroupName: 'webapp-tst-jhotchkiss_uk'
     SlotName: staging
@@ -35,7 +35,7 @@ steps:
 - task: AzureAppServiceManage@0
   inputs:
     azureSubscription: 'Azure Connection to Personal Sub'
-    WebAppName: 'jh-test-wa'
+    WebAppName: 'jh-test-wa-staging'
     ResourceGroupName: 'webapp-tst-jhotchkiss_uk'
     SourceSlot: staging
 
